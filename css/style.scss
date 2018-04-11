@@ -1,0 +1,187 @@
+//colors
+$dark-blue: #2B2F3E;
+$blue: #47568C;
+$green: #27CCC0;
+$red: #FF305A;
+$yellow: #FF8A00;
+$gray: #E6E6E6;
+$text-color: #666666;
+
+//typography
+h2 {
+  font-size: 36px;
+  line-height: 43px;
+  font-weight: 300;
+  color: $dark-blue;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 300;
+  color: $dark-blue;
+}
+
+p {
+  font-size: 12px;
+  line-height: 18px;
+  color: $text-color;
+}
+
+//styles
+.container {
+  max-width: 1920px;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  & > .row {
+    height: 100%;
+  }
+}
+
+//sidebar
+.app-sidebar {
+  padding: 20px 30px;
+  height: 100%;
+  background-color: $dark-blue;
+  & h2 {
+    color: white;
+    text-transform: uppercase;
+  }
+  & h4 {
+    color: #808080;
+  }
+}
+
+//content
+.app-content {
+  padding: 30px 15px;
+  height: 100%;
+  overflow-x: auto;
+  & h2 {
+    margin-bottom: 15px;
+  }
+
+  &-items {
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    &-form {
+      margin-bottom: 10px;
+      & input {
+        float: left;
+        width: 67%;
+      }
+      & button {
+        float: left;
+        width: 31%;
+        margin-left: 2%;
+      }
+    }
+  }
+
+  &-item {
+    position: relative;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray;
+    cursor: pointer;
+    & p {
+      margin: 9px 0;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+    &.active:before {
+      display: block;
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: -33px;
+      background-color: $red;
+    }
+  }
+
+  &-comments {
+    padding: 20px 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    & h2 {
+      margin-bottom: 27px;
+    }
+  }
+
+  &-comment,
+  &-comment-form {
+    position: relative;
+    padding: 15px 0 15px 65px;
+    min-height: 80px;
+    border-bottom: 1px solid $gray;
+    &-icon {
+      position: absolute;
+      left: 0;
+      top: 15px;
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-color: $blue;
+      &.even {
+        background-color: $yellow;
+      }
+    }
+    &-text {
+      margin: 0;
+    }
+    &.last {
+      border-bottom: 0;
+    }
+
+  }
+  &-comment-form {
+    border-bottom: 0;
+    & .app-content-comment-icon {
+      background-color: $gray;
+    }
+    & textarea {
+      padding: 10px;
+      min-height: 70px;
+      width: 100%;
+      border: 2px solid $gray;
+    }
+  }
+}
+
+//buttons
+.btn-info {
+  background-color: $green;
+  border-color: $green;
+  font-weight: 600;
+  &:hover,
+  &:active {
+    background-color: darken($green, 10) !important;
+    border-color: darken($green, 10) !important;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(39, 204, 192, .5);
+  }
+}
+
+.btn-outline-danger {
+  color: $red;
+  border-color: $red;
+  &:hover,
+  &:active {
+    background-color: darken($red, 10) !important;
+    border-color: darken($red, 10) !important;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 48, 90, .5);
+  }
+}
+
+//badge
+.badge-info {
+  margin-left: 25px;
+  font-size: 86%;
+  background-color: $green;
+}

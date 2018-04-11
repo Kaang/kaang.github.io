@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="messageApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>app</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="app/app.js"></script>
+
+</head>
+<body>
+
+<div ng-controller="MessageCtrl" class="container">
+    <div class="row">
+
+        <!--sidebar-->
+        <div class="col-md-2 pl-0">
+            <div class="app-sidebar">
+                <h2>DAIRY APP</h2>
+                <h4>Comment with no sense</h4>
+            </div>
+        </div>
+
+        <!--content-->
+        <div class="col-md-10 pl-0 pr-0">
+            <div class="app-content">
+                <div class="row">
+                    <!--items block-->
+                    <div class="col-md-6">
+                        <div class="app-content-items">
+                            <h2>Items</h2>
+
+                            <!--items input-->
+                            <form class="app-content-items-form clearfix" name="itemForm">
+                                <input type="text" class="form-control" name="itemName" ng-model="itemName"
+                                       placeholder="Type name here...">
+                                <button ng-click="addNewItem(itemName)" type="submit" class="btn btn-info">Add new
+                                </button>
+                            </form>
+                            <!--end items input-->
+
+                            <!--item-->
+                            <div ng-repeat="item in items track by $index"
+                                 ng-click="onSelectItem($index)"
+                                 ng-class="{active:(selectedItem.index === $index)}"
+                                 class="app-content-item clearfix">
+                                <p class="app-content-item-name float-left">
+                                    {{item.name}}
+                                    <span class="badge badge-pill badge-info">{{item.comments.length}}</span>
+                                </p>
+                                <button ng-click="deleteItem($index)"
+                                        type="button" class="btn btn-outline-danger float-right">Delete
+                                </button>
+                            </div>
+                            <!--end item-->
+
+                        </div>
+                    </div>
+                    <!--end items block-->
+
+                    <!--comments block-->
+                    <div class="col-md-6">
+                        <div class="app-content-comments">
+                            <h2>Comments #{{selectedItem.index + 1}}</h2>
+
+                            <!--comment-->
+                            <div ng-repeat="comment in items[selectedItem.index].comments track by $index"
+                                 ng-class="{last:$last}"
+                                 class="app-content-comment">
+                                <span ng-class="{even:$even}" class="app-content-comment-icon"></span>
+                                <p class="app-content-comment-text">{{comment}}</p>
+                            </div>
+                            <!--end comment-->
+
+                            <!--comment input-->
+                            <form class="app-content-comment-form" name="commentForm">
+                                <span class="app-content-comment-icon"></span>
+                                <textarea ng-keyup="addComment(selectedItem.index, comment, $event.keyCode)"
+                                          ng-model="comment"
+                                          class="" name="comment"></textarea>
+                            </form>
+                            <!--end comment input-->
+
+                        </div>
+                    </div>
+                    <!--end comments block-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

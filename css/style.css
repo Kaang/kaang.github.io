@@ -1,0 +1,132 @@
+h2 {
+  font-size: 36px;
+  line-height: 43px;
+  font-weight: 300;
+  color: #2B2F3E; }
+
+h4 {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 300;
+  color: #2B2F3E; }
+
+p {
+  font-size: 12px;
+  line-height: 18px;
+  color: #666666; }
+
+.container {
+  max-width: 1920px;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif; }
+  .container > .row {
+    height: 100%; }
+
+.app-sidebar {
+  padding: 20px 30px;
+  height: 100%;
+  background-color: #2B2F3E; }
+  .app-sidebar h2 {
+    color: white;
+    text-transform: uppercase; }
+  .app-sidebar h4 {
+    color: #808080; }
+
+.app-content {
+  padding: 30px 15px;
+  height: 100%;
+  overflow-x: auto; }
+  .app-content h2 {
+    margin-bottom: 15px; }
+  .app-content-items {
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+    .app-content-items-form {
+      margin-bottom: 10px; }
+      .app-content-items-form input {
+        float: left;
+        width: 67%; }
+      .app-content-items-form button {
+        float: left;
+        width: 31%;
+        margin-left: 2%; }
+  .app-content-item {
+    position: relative;
+    padding: 10px 0;
+    border-bottom: 1px solid #E6E6E6;
+    cursor: pointer; }
+    .app-content-item p {
+      margin: 9px 0;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600; }
+    .app-content-item.active:before {
+      display: block;
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: -33px;
+      background-color: #FF305A; }
+  .app-content-comments {
+    padding: 20px 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+    .app-content-comments h2 {
+      margin-bottom: 27px; }
+  .app-content-comment, .app-content-comment-form {
+    position: relative;
+    padding: 15px 0 15px 65px;
+    min-height: 80px;
+    border-bottom: 1px solid #E6E6E6; }
+    .app-content-comment-icon, .app-content-comment-form-icon {
+      position: absolute;
+      left: 0;
+      top: 15px;
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-color: #47568C; }
+      .app-content-comment-icon.even, .app-content-comment-form-icon.even {
+        background-color: #FF8A00; }
+    .app-content-comment-text, .app-content-comment-form-text {
+      margin: 0; }
+    .app-content-comment.last, .app-content-comment-form.last {
+      border-bottom: 0; }
+  .app-content-comment-form {
+    border-bottom: 0; }
+    .app-content-comment-form .app-content-comment-icon {
+      background-color: #E6E6E6; }
+    .app-content-comment-form textarea {
+      padding: 10px;
+      min-height: 70px;
+      width: 100%;
+      border: 2px solid #E6E6E6; }
+
+.btn-info {
+  background-color: #27CCC0;
+  border-color: #27CCC0;
+  font-weight: 600; }
+  .btn-info:hover, .btn-info:active {
+    background-color: #1fa198 !important;
+    border-color: #1fa198 !important; }
+  .btn-info:focus {
+    box-shadow: 0 0 0 0.2rem rgba(39, 204, 192, 0.5); }
+
+.btn-outline-danger {
+  color: #FF305A;
+  border-color: #FF305A; }
+  .btn-outline-danger:hover, .btn-outline-danger:active {
+    background-color: #fc0033 !important;
+    border-color: #fc0033 !important; }
+  .btn-outline-danger:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 48, 90, 0.5); }
+
+.badge-info {
+  margin-left: 25px;
+  font-size: 86%;
+  background-color: #27CCC0; }
+
+/*# sourceMappingURL=style.css.map */
