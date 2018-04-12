@@ -86,7 +86,7 @@
                             <!--comment input-->
                             <form class="app-content-comment-form" name="commentForm">
                                 <span class="app-content-comment-icon"></span>
-                                <textarea ng-keyup="addComment(selectedItem.index, comment, $event.keyCode)"
+                                <textarea ng-ctrl-enter="addComment2(selectedItem.index, comment)"
                                           ng-model="comment"
                                           class="" name="comment"></textarea>
                             </form>

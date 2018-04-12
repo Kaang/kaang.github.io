@@ -2,7 +2,7 @@
 
 var messageApp = angular.module('messageApp', []);
 
-messageApp.controller('MessageCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
+messageApp.controller('MessageCtrl', ['$scope', function ($scope) {
 
     $scope.selectedItem = {
         index: 0
@@ -51,7 +51,7 @@ messageApp.controller('MessageCtrl', ['$scope', '$timeout', function ($scope, $t
         saveData();
     };
 
-    $scope.addNewItem = function (val){
+    $scope.addNewItem = function (val) {
         if (val) {
             var item = {
                 name: val,
@@ -70,21 +70,37 @@ messageApp.controller('MessageCtrl', ['$scope', '$timeout', function ($scope, $t
         saveData();
     };
 
-    var keyMap = {13: false, 17: false};
-    $scope.addComment = function (index, comment, code) {
-        if (comment && code in keyMap) {
-            keyMap[code] = true;
-            if (keyMap[13] && keyMap[17]) {
-                $scope.items[index].comments.push(comment);
-                $scope.comment = undefined;
-
-                saveData();
-            }
-            $timeout(function () {
-                keyMap[13] = false;
-                keyMap[17] = false;
-            }, 100);
+    //add comment with directive
+    $scope.addComment2 = function (index, comment) {
+        console.log("val:", index, comment);
+        if (comment) {
+            $scope.items[index].comments.push(comment);
+            $scope.comment = undefined;
         }
+        saveData();
     }
 
 }]);
+
+messageApp.directive('ngCtrlEnter', function () {
+    return function (scope, element, attrs) {
+        var map = {13: false, 17: false};
+
+        element.bind("keydown", function (event) {
+            if (event.which in map) {
+                map[event.which] = true;
+                if (map[13] && map[17]) {
+                    scope.$apply(function () {
+                        scope.$eval(attrs.ngCtrlEnter, {'event': event});
+                    });
+                    event.preventDefault();
+                }
+            }
+        });
+        element.bind("keyup", function (event) {
+            if (event.which in map) {
+                map[event.keyCode] = false;
+            }
+        });
+    };
+});
